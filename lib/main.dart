@@ -18,7 +18,7 @@ void main() async {
     if (!kReleaseMode) {
       // Would otherwise fail static analysis. This is just a temporary provision.
       // ignore: avoid_print
-      print("$exception -=- $stackTrace");
+      print('$exception -=- $stackTrace');
     }
   });
 }
