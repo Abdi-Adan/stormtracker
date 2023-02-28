@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:stormtracker/presentation/widgets/custom_appbar.dart';
 
-class CurrentForecast extends StatelessWidget {
+class CurrentForecast extends StatefulWidget {
   const CurrentForecast({
     super.key,
   });
 
+  @override
+  State<CurrentForecast> createState() => _CurrentForecastState();
+}
+
+class _CurrentForecastState extends State<CurrentForecast> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +46,7 @@ class CurrentForecast extends StatelessWidget {
                   child: Icon(
                     Icons.sunny,
                     size: 100,
-                    color: Colors.white,
+                    color: Colors.yellow,
                   ),
                 ),
                 const SizedBox(width: 30),

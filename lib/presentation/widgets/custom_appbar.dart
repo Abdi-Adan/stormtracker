@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:stormtracker/utils/app_strings.dart';
 
-class CustomAppbar extends StatelessWidget {
+class CustomAppbar extends StatefulWidget {
   const CustomAppbar({
     super.key,
   });
+
+  @override
+  State<CustomAppbar> createState() => _CustomAppbarState();
+}
+
+class _CustomAppbarState extends State<CustomAppbar> {
+  var isFavourite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +54,31 @@ class CustomAppbar extends StatelessWidget {
                   ),
                 )),
             InkWell(
-                onTap: () {},
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 3),
+                onTap: () {
+                  setState(() {
+                    isFavourite = !isFavourite;
+                    ScaffoldMessenger.of(context)
+                      ..hideCurrentSnackBar()
+                      ..showSnackBar(
+                        SnackBar(
+                          content: isFavourite
+                              ? const Text(favouritedLocation)
+                              : const Text(unfavouritedLocation),
+                          action: SnackBarAction(
+                            label: 'Okay',
+                            onPressed: () {
+                              ScaffoldMessenger.of(context)
+                                  .hideCurrentSnackBar();
+                            },
+                          ),
+                        ),
+                      );
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 3),
                   child: Icon(
-                    Icons.favorite_outline,
+                    isFavourite ? Icons.favorite : Icons.favorite_outline,
                     color: Colors.white,
                   ),
                 )),

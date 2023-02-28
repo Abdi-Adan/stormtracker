@@ -12,7 +12,7 @@ class ForecastSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: const Color(0xff4a90e2),
+      color: Colors.lightBlue,
       height: (MediaQuery.of(context).size.height * 0.60),
       alignment: Alignment.center,
       child: Column(

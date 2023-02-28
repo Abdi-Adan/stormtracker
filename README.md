@@ -5,7 +5,7 @@ A weather application to display the current weather at the user’s location an
 Checklist: 
 
     - [x] Track code changes and versions using github
-    - [ ] Use the provided assets to do the sea design mockup
+    - [x] Use the provided assets to do the sea design mockup
     - [ ] Connect to the (Openweathermap current)[https://openweathermap.org/current] API endpoint to get current day Weather forecast
     - [ ] Connect to the (Openweathermap forecast)[https://openweathermap.org/forecast5] API endpoint to get the 5 day weather forecast
     - [ ] Utilize BLoC package for state management
