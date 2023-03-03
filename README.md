@@ -11,10 +11,8 @@ Checklist:
 - [x] Utilize BLoC package for state management
 - [x] Add architecture that supports bloc and SOLID principles design pattern.
 - [x] Integrate geolocator package to get initial use location coordinates
-- [ ] Utilize the [FourSquare Places API](https://developer.foursquare.com/reference/autocomplete) to different cities based on user coordinates or searched weather locations
-- [ ] The ability to select and save different weather locations as favourites
+- [x] Utilize the [FourSquare Places API](https://developer.foursquare.com/reference/autocomplete) to different cities based on user coordinates or searched weather locations
+- [x] The ability to select and save different weather locations as favourites
+- [x] The ability to get extra information about a specific location (Day forecast and 5 day forecast)
 - [ ] The ability to view a list of favourite weather locations
-- [ ] The ability to get extra information about a specific location (Day forecast and 5 day forecast)
-- [ ] Use TDD guidelines, add tests and integrate Code coverage threshold checks into the CI/CD pipeline
-- [ ] Use github actions CI/CD integration to do static analysis, testing and build pipeline
 

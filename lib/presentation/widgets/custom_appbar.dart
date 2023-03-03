@@ -1,4 +1,8 @@
+import 'package:country_state_city_picker/country_state_city_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stormtracker/blocs/weather/weather_bloc.dart';
+import 'package:stormtracker/blocs/weather/weather_event.dart';
 import 'package:stormtracker/utils/app_strings.dart';
 
 class CustomAppbar extends StatefulWidget {
@@ -19,6 +23,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
   @override
   Widget build(BuildContext context) {
     var isFavourite = widget.isFavourited;
+    final WeatherBloc weatherBloc = BlocProvider.of<WeatherBloc>(context);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,7 +31,9 @@ class _CustomAppbarState extends State<CustomAppbar> {
         Row(
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                //Should show list of favourite cities
+              },
               child: const Padding(
                 padding: EdgeInsets.only(right: 8),
                 child: Icon(
@@ -35,13 +42,20 @@ class _CustomAppbarState extends State<CustomAppbar> {
                 ),
               ),
             ),
-            Text(
-              widget.cityName,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontFamily: 'Lato',
-                fontWeight: FontWeight.bold,
+            InkWell(
+              onTap: () {
+                setState(() {
+                  _showDialog(context, '', weatherBloc);
+                });
+              },
+              child: Text(
+                widget.cityName,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontFamily: 'Lato',
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
@@ -49,7 +63,11 @@ class _CustomAppbarState extends State<CustomAppbar> {
         Row(
           children: [
             InkWell(
-                onTap: () {},
+                onTap: () {
+                  setState(() {
+                    _showDialog(context, '', weatherBloc);
+                  });
+                },
                 child: const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3),
                   child: Icon(
@@ -92,4 +110,33 @@ class _CustomAppbarState extends State<CustomAppbar> {
       ],
     );
   }
+}
+
+void _showDialog(BuildContext ctx, String cityValue, WeatherBloc weatherBloc) {
+  showDialog(
+      context: ctx,
+      builder: (ctx) {
+        return SizedBox(
+          height: 200,
+          child: AlertDialog(
+            title: const Text('Select new weather location'),
+            content: SelectState(
+              onCountryChanged: (value) {},
+              onStateChanged: (value) {},
+              onCityChanged: (value) {
+                cityValue = value;
+              },
+            ),
+            actions: [
+              TextButton(
+                child: const Text('Search'),
+                onPressed: () {
+                  weatherBloc.add(FetchWeatherEvent(cityValue));
+                  Navigator.pop(ctx);
+                },
+              ),
+            ],
+          ),
+        );
+      });
 }

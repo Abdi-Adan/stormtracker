@@ -5,14 +5,14 @@ import 'package:stormtracker/utils/app_routes.dart';
 
 class AppRouterGenerator {
   static Route<dynamic>? generateRoute(RouteSettings? settings) {
-    // Would otherwise fail static analysis. This is just a temporary provision.
-    // ignore: unused_local_variable
     final dynamic args = settings?.arguments;
 
     switch (settings?.name) {
       case homePageRoute:
         return MaterialPageRoute<StormtrackerHome>(
-            builder: (_) => const StormtrackerHome());
+            builder: (_) => StormtrackerHome(
+                  currentCity: args,
+                ));
 
       default:
         return _errorRoute();
@@ -21,7 +21,7 @@ class AppRouterGenerator {
 
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute<StormtrackerHome>(
-      builder: (_) => const StormtrackerHome(),
+      builder: (_) => const StormtrackerHome(currentCity: 'Nairobi'),
     );
   }
 }

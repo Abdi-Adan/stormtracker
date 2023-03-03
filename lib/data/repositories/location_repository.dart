@@ -9,7 +9,7 @@ class LocationRepo {
 
   Future<String> getNearestCity(double latitude, double longitude) async {
     // construct the API request URL
-    String apiUrl = 'https://api.foursquare.com/v2/venues/search' +
+    String apiUrl = 'https://api.foursquare.com/v3/venues/search' +
         '?ll=$latitude,$longitude' +
         '&intent=checkin' +
         '&radius=100000' +
