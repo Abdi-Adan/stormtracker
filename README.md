@@ -16,3 +16,5 @@ Checklist:
 - [x] The ability to get extra information about a specific location (Day forecast and 5 day forecast)
 - [ ] The ability to view a list of favourite weather locations
 
+For testing purposes, build this application in debugging mode to be able to view the weather forecast.
+
