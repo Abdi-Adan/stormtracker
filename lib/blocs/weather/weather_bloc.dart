@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:stormtracker/blocs/weather_event.dart';
-import 'package:stormtracker/blocs/weather_state.dart';
-import 'package:stormtracker/data/models/weather.dart';
+import 'package:stormtracker/blocs/weather/weather_event.dart';
+import 'package:stormtracker/blocs/weather/weather_state.dart';
+import 'package:stormtracker/data/models/weather_model.dart';
 import 'package:stormtracker/data/repositories/weather_repository.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {

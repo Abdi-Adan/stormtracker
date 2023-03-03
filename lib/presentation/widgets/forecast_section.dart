@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stormtracker/blocs/weather_state.dart';
+import 'package:stormtracker/blocs/weather/weather_state.dart';
 import 'package:stormtracker/presentation/widgets/day_widget.dart';
 import 'package:stormtracker/presentation/widgets/forecast_variation_bar.dart';
 import 'package:stormtracker/presentation/widgets/waves_pattern.dart';

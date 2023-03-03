@@ -1,5 +1,6 @@
 /// In this file we have switch cases, typedefs, enums and other globally usable and shared utilities for the entire app aside from strings, constants and routes
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 enum WeatherIconType {
   clear,
@@ -8,7 +9,8 @@ enum WeatherIconType {
 }
 
 WeatherIconType enumFromString(String value) {
-  return WeatherIconType.values.firstWhere((e) => e.toString().split('.').last == value);
+  return WeatherIconType.values
+      .firstWhere((e) => e.toString().split('.').last == value);
 }
 
 extension IconTypeExtension on WeatherIconType {
@@ -52,4 +54,25 @@ class WeatherStatus {
     required this.iconColor,
     required this.backgroundColor,
   });
+}
+
+class LocationService {
+  Future<Position> getLocation() async {
+    LocationPermission permission = await Geolocator.requestPermission();
+
+    if (permission == LocationPermission.denied) {
+      await Geolocator.openAppSettings();
+      permission = await Geolocator.requestPermission();
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+
+    return position;
+  }
 }

@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:intl/intl.dart';
-import 'package:stormtracker/data/models/weather.dart';
+import 'package:stormtracker/data/models/weather_model.dart';
 
 class WeatherRepo {
   var apiKey = 'b5d25753b8cd035ce1487c1473b2d278';

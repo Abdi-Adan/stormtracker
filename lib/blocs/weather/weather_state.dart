@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:stormtracker/data/models/weather.dart';
+import 'package:stormtracker/data/models/weather_model.dart';
 
 abstract class WeatherState extends Equatable {
   const WeatherState();
@@ -17,7 +17,7 @@ class WeatherLoaded extends WeatherState {
   const WeatherLoaded(this.weather, this.forecasts);
 
   @override
-  List<Object> get props => [weather];
+  List<Object> get props => [weather, forecasts];
 }
 
 class WeatherIsNotLoading extends WeatherState {}

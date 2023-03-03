@@ -1,4 +1,4 @@
-package com.example.stormtracker
+package com.stormtracker.mobile
 
 import io.flutter.embedding.android.FlutterActivity
 
