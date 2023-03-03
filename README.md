@@ -18,3 +18,11 @@ Checklist:
 
 For testing purposes, build this application in debugging mode to be able to view the weather forecast.
 
+## Screenshots of current version
+
+
+![Benguela](https://user-images.githubusercontent.com/53440762/222723983-53840432-f4c5-44d8-8d7b-79b8af71d1f7.jpeg)
+![Doha](https://user-images.githubusercontent.com/53440762/222724105-68327b2e-e728-47f5-bc6c-75b9cfad9b4d.jpeg)
+![NewLocationDropdown](https://user-images.githubusercontent.com/53440762/222724175-c50fc0c7-8fe4-4599-8fd4-5a795506818b.jpeg)
+![New location](https://user-images.githubusercontent.com/53440762/222724243-263c67e9-8f90-4960-b1f8-2703fc7c7532.jpeg)
+![California city](https://user-images.githubusercontent.com/53440762/222724336-0f9104a6-90cc-47ec-ad1a-9598eea1fffa.jpeg)
