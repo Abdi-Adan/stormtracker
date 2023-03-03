@@ -1,7 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:stormtracker/presentation/pages/home_page.dart';
-import 'package:stormtracker/stormtracker.dart';
 import 'package:stormtracker/utils/app_routes.dart';
 
 class AppRouterGenerator {
@@ -21,7 +20,7 @@ class AppRouterGenerator {
   }
 
   static Route<dynamic> _errorRoute() {
-    return MaterialPageRoute<Stormtracker>(
+    return MaterialPageRoute<StormtrackerHome>(
       builder: (_) => const StormtrackerHome(),
     );
   }

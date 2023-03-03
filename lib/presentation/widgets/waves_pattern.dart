@@ -11,21 +11,21 @@ class WavesPattern extends StatelessWidget {
       children: [
         Container(
           width: 60,
-          height: 2,
+          height: 3,
           decoration: BoxDecoration(
               color: Colors.blueGrey, borderRadius: BorderRadius.circular(20)),
         ),
         Container(
           margin: const EdgeInsets.only(top: 2, left: 35),
           width: 60,
-          height: 2,
+          height: 3,
           decoration: BoxDecoration(
               color: Colors.blueGrey, borderRadius: BorderRadius.circular(30)),
         ),
         Container(
           margin: const EdgeInsets.only(top: 2, left: 10),
           width: 60,
-          height: 2,
+          height: 3,
           decoration: BoxDecoration(
               color: Colors.blueGrey, borderRadius: BorderRadius.circular(30)),
         ),

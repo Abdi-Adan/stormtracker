@@ -13,7 +13,7 @@ void main() async {
 
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-    runApp(const Stormtracker());
+    runApp(StormtrackerApp());
   }, (Object exception, StackTrace stackTrace) {
     if (!kReleaseMode) {
       // Would otherwise fail static analysis. This is just a temporary provision.

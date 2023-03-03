@@ -1,9 +1,10 @@
-
 import 'package:flutter/material.dart';
 
 class ForecastVariationItem extends StatelessWidget {
+  final String temp;
+
   const ForecastVariationItem({
-    super.key,
+    super.key, required this.temp,
   });
 
   @override
@@ -11,12 +12,12 @@ class ForecastVariationItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
-        children: const [
+        children: [
           Text(
-            '19℃',
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            '$temp ℃',
+            style: const TextStyle(color: Colors.white, fontSize: 20),
           ),
-          Text(
+          const Text(
             'min',
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),

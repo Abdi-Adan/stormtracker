@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:stormtracker/blocs/weather_state.dart';
 import 'package:stormtracker/presentation/widgets/custom_appbar.dart';
+import 'package:stormtracker/utils/app_utils.dart';
 
+// ignore: must_be_immutable
 class CurrentForecast extends StatefulWidget {
-  const CurrentForecast({
+  WeatherLoaded state;
+
+  CurrentForecast({
     super.key,
+    required this.state,
   });
 
   @override
@@ -13,14 +19,21 @@ class CurrentForecast extends StatefulWidget {
 class _CurrentForecastState extends State<CurrentForecast> {
   @override
   Widget build(BuildContext context) {
+    WeatherIconType iconType =
+        enumFromString(widget.state.weather.main.toLowerCase());
+    WeatherStatus status = iconType.status;
+
     return Container(
       width: double.infinity,
       height: (MediaQuery.of(context).size.height * 0.40),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
-          colors: [Colors.orangeAccent, Colors.deepOrange],
+          colors: [
+            status.backgroundColor.first,
+            status.backgroundColor.last,
+          ],
         ),
       ),
       child: Column(
@@ -34,37 +47,41 @@ class _CurrentForecastState extends State<CurrentForecast> {
               color: Colors.white.withOpacity(.3),
               borderRadius: BorderRadius.circular(30),
             ),
-            child: const CustomAppbar(),
+            child: CustomAppbar(
+              cityName: widget.state.weather.cityName,
+              isFavourited: false,
+            ),
           ),
           const SizedBox(height: 40),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 20),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
                   child: Icon(
-                    Icons.sunny,
+                    // Icons.sunny,
+                    status.icon,
                     size: 100,
-                    color: Colors.yellow,
+                    color: status.iconColor,
                   ),
                 ),
                 const SizedBox(width: 30),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
-                      '25℃',
-                      style: TextStyle(
+                      '${widget.state.weather.temp.toInt()} ℃',
+                      style: const TextStyle(
                         fontSize: 50,
                         color: Colors.white,
                         fontFamily: 'Lato',
                       ),
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     Text(
-                      'SUNNY',
-                      style: TextStyle(
+                      widget.state.weather.main.toString().toUpperCase(),
+                      style: const TextStyle(
                         fontSize: 20,
                         color: Colors.white,
                         fontWeight: FontWeight.normal,

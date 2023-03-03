@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:stormtracker/utils/app_strings.dart';
 
 class CustomAppbar extends StatefulWidget {
+  final String cityName;
+  final bool isFavourited;
+
   const CustomAppbar({
     super.key,
+    required this.cityName,
+    required this.isFavourited,
   });
 
   @override
@@ -11,10 +16,10 @@ class CustomAppbar extends StatefulWidget {
 }
 
 class _CustomAppbarState extends State<CustomAppbar> {
-  var isFavourite = false;
-
   @override
   Widget build(BuildContext context) {
+    var isFavourite = widget.isFavourited;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -30,9 +35,9 @@ class _CustomAppbarState extends State<CustomAppbar> {
                 ),
               ),
             ),
-            const Text(
-              'Nairobi ',
-              style: TextStyle(
+            Text(
+              widget.cityName,
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 20,
                 fontFamily: 'Lato',

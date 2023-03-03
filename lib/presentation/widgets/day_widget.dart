@@ -1,25 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DayWidget extends StatelessWidget {
+  final String dayOfWeek;
+  final IconData statusIcon;
+  final String dayTemp;
+
   const DayWidget({
     super.key,
+    required this.dayOfWeek,
+    required this.statusIcon,
+    required this.dayTemp,
   });
 
   @override
   Widget build(BuildContext context) {
-    return const ListTile(
+    return ListTile(
       leading: Text(
-        'Tuesday',
-        style: TextStyle(color: Colors.white, fontSize: 18),
+        DateFormat('EEEE').format(DateTime.parse(dayOfWeek)),
+        style: const TextStyle(color: Colors.white, fontSize: 18),
       ),
       title: Icon(
-        Icons.wb_sunny_outlined,
+        statusIcon,
         color: Colors.white,
         size: 30,
       ),
       trailing: Text(
-        '20℃',
-        style: TextStyle(color: Colors.white, fontSize: 18),
+        '$dayTemp ℃',
+        style: const TextStyle(color: Colors.white, fontSize: 18),
       ),
     );
   }
